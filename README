@@ -1,0 +1,44 @@
+ Usage:
+	 todo
+	 todo -a|--add <item todo> <date>
+	 todo -d|--done <index>
+	 todo -p|--push <index> <date>
+	 todo -e|--edit <index> <message>
+
+ Description:
+	A simple todo script for all of your scheduling needs. Inspired by
+	aesophor/py-todo but with less code and dependencies.
+
+ Installing:
+	todo is a shell script so symlink todo to a path that is in your $PATH 
+	variable
+
+	ln -s $PWD/todo /bin/
+
+ Examples:
+	todo
+	todo -a "Compsci Homework" "Sep 6"
+	todo --add "Call mom" "next week"
+
+	# To get a list of what indexes to use, just run todo. The indexes
+	# are in blue
+	todo
+	todo -d 2
+	# Mark item at 2 as done
+	todo -p 3 "Jul 30 2020"
+	# Push item 3 to July 30 2020
+	todo -e 1 "This needed changing"
+	# Change the message at item 1
+
+ Options:
+    -a|--add <item> <date>    Adds an item to the todo list, if no date is
+                              listed the item will have the due date of
+                              "today"
+    -d|--done <index>         Marks the item as done
+    -p|--push <index> <date>  Change the item's due date
+    -e|--edit <index> <date>  Change the message of the item
+    -f                        Show items marked as done
+
+Notes:
+	Still needs some work, especially with reformatting _list_. Current
+	implementation works but looks ugly as heck.
