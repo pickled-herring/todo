@@ -21,7 +21,7 @@ _list_(){
 	_sort_
 	printf %b"You have "%s" things to do:"%b"\n" \
 		$GREY $(cat $DIR | grep -c 'a |') $EXIT
-	cat -n $DIR | grep 'a |' |\
+	cat -n $DIR | grep -v '^$' | grep 'a |' |\
 		awk -F "|" '{system("\
 		days=$(($(($(date -d "$3" \"+%s\") - $(date \"+%s\"))) / 86400));\
 		blue=\"\\033[94m\";\
